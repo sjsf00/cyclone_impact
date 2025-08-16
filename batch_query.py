@@ -87,13 +87,13 @@ if __name__ == "__main__":
     with open("token.txt", "r", encoding="utf-8") as f:
         API_TOKEN = f.read().strip()
     start_date = datetime(2025, 7, 28, 0, 0, 0)
-    end_date = datetime(2025, 8, 4, 0, 0, 0)
+    end_date = datetime(2025, 7, 28, 1, 0, 0)
     interval_seconds = 15*60
 
     with open('query_format_YangtzeDelta.json', 'r') as f:
         bounds_list = json.load(f)
-
-    all_flights = fetch_historic_flight_positions(
+        bounds_list = [bounds_list[0]]
+    test15 = fetch_historic_flight_positions(
         api_token=API_TOKEN,
         start_date=start_date,
         end_date=end_date,
@@ -102,5 +102,5 @@ if __name__ == "__main__":
         limit=300
     )
 
-    print(f"Total records retrieved: {len(all_flights)}")
+    print(f"Total records retrieved: {len(test15)}")
     
